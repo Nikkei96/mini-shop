@@ -2,8 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '@/view/Home'
-import Page1 from '@/view/Page1'
-import Page2 from '@/view/Page2'
+import Shop from '@/view/Shop'
 
 // * Мы говори VUE использовать эту библиотеку
 Vue.use(Router)
@@ -18,12 +17,8 @@ const routes = [
     component: Home,
   },
   {
-    path: '/page1',
-    component: Page1,
-  },
-  {
-    path: '/page2',
-    component: Page2,
+    path: '/shop',
+    component: Shop,
   },
 ]
 

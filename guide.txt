@@ -1,0 +1,14 @@
+Знакомство с расширениями:
+1. Better Comments
+2. Bracket Pair Colorized 2
+3. Import Cost
+4. Vetur -> отключить форматтер
+
+Что нужно:
+node.js
+npm
+npm install -g @vue/cli
+
+Разработка проекта:
+1) vue ui -> создание проекта
+2) npm run serve - запуск проекта

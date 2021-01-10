@@ -1,10 +1,19 @@
+Команды гит:
+git init
+git status
+git log
+git add .
+git add App.vue
+git commit -m 'message'
+
+
 Знакомство с расширениями:
 1. Better Comments
 2. Bracket Pair Colorized 2
 3. Import Cost
 4. Vetur -> отключить форматтер
 
-Что нужно:
+Что нужно для создания проекта на VUE:
 node.js
 npm
 npm install -g @vue/cli
@@ -12,3 +21,10 @@ npm install -g @vue/cli
 Разработка проекта:
 1) vue ui -> создание проекта
 2) npm run serve - запуск проекта
+3) npm install vue-router - установить vue-router -> выполнить конфигурацию
+
+
+Ссылки:
+https://ru.vuejs.org/v2/guide/index.html
+https://router.vuejs.org/ru/
+https://cli.vuejs.org/

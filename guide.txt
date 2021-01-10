@@ -22,9 +22,11 @@ npm install -g @vue/cli
 1) vue ui -> создание проекта
 2) npm run serve - запуск проекта
 3) npm install vue-router - установить vue-router -> выполнить конфигурацию
+4) vue add vuetify -> установка этого фреймворка в наш проект
 
 
 Ссылки:
 https://ru.vuejs.org/v2/guide/index.html
 https://router.vuejs.org/ru/
 https://cli.vuejs.org/
+https://vuetifyjs.com/en/

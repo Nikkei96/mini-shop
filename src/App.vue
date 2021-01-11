@@ -2,7 +2,7 @@
   <v-app app>
     <Header />
     <SideBar />
-    
+
     <v-main>
       <router-view />
     </v-main>
@@ -10,18 +10,17 @@
 </template>
 
 <script>
-  import Header from '@/components/Header' 
-  import SideBar from '@/components/SideBar' 
+import Header from '@/components/Header'
+import SideBar from '@/components/SideBar'
 
-  export default {
-    data: () => ({
-    }),
+export default {
+  data: () => ({}),
 
-    components: {
-      Header,
-      SideBar,
-    }
-  }
+  components: {
+    Header,
+    SideBar,
+  },
+}
 </script>
 
 <style>

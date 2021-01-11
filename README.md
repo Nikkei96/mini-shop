@@ -1,19 +1,18 @@
-# magazine
+# Курс создание интернет-магазина (Роман)
 
-## Project setup
+## Порядок действий после клонирования репозитория
+
+### 1) Открыть консоль из проекта в VS Code (ctrl + `)
+
+### 2) Установить зависимости
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 3) Запустить проект
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Домашние задания хранятся в папке _materials/homework
+- Конспекты уроков - _materials/guide.txt

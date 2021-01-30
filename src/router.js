@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Home from '@/view/Home'
 import Shop from '@/view/Shop'
 
-// * Мы говори VUE использовать эту библиотеку
+// * Мы говорим VUE использовать эту библиотеку
 Vue.use(Router)
 
 /**

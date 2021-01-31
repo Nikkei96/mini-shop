@@ -1,8 +1,21 @@
 <template>
-  <v-navigation-drawer clipped permanent app :mini-variant='window.width < 800'>
-    <v-sheet color='grey lighten-4' class='pa-4'>
-      <v-avatar class='mb-4' color='grey darken-1' size='64'></v-avatar>
-      <div>john@vuetifyjs.com</div>
+  <v-navigation-drawer
+    clipped
+    permanent
+    app
+    :mini-variant='window.width < windowLimit'
+  >
+    <v-sheet
+      color='grey lighten-4'
+      :class='window.width > windowLimit ? "pa-4" : "text-center"'
+    >
+      <v-avatar
+        :class='window.width > windowLimit ? "mb-4" : "my-2"'
+        color='grey darken-1'
+        size='32'
+        title='john@vuetifyjs.com'
+      ></v-avatar>
+      <div v-if='window.width > windowLimit'>john@vuetifyjs.com</div>
     </v-sheet>
 
     <v-divider></v-divider>
@@ -35,6 +48,8 @@ export default {
       width: 0,
     },
 
+    windowLimit: 800,
+
     links: [
       {
         icon: 'mdi-home',
@@ -64,8 +79,18 @@ export default {
     ],
   }),
 
+  methods: {
+    resizeHandler() {
+      this.window.width = window.innerWidth
+    },
+  },
+
   created() {
-    this.window.width = window.innerWidth
+    window.addEventListener('resize', this.resizeHandler)
+  },
+
+  destroyed() {
+    window.removeEventListener('resize', this.resizeHandler)
   },
 }
 </script>

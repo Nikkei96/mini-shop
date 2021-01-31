@@ -2,11 +2,14 @@ import Vue from 'vue'
 import App from '@/App.vue'
 import router from '@/router'
 import vuetify from '@/plugins/vuetify'
+import Vuelidate from 'vuelidate'
 
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
 Vue.config.productionTip = false
+
+Vue.use(Vuelidate)
 
 let firebaseConfig = {
   apiKey: "AIzaSyCvU5reGcqJuzBrkggKNRQ2RL2i0iWax4A",

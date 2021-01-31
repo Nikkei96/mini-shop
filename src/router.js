@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from '@/view/Home'
 import Shop from '@/view/Shop'
+import E404 from '@/view/E404'
 
 // * Мы говорим VUE использовать эту библиотеку
 Vue.use(Router)
@@ -15,10 +16,17 @@ const routes = [
   {
     path: '/',
     component: Home,
+    meta: { layout: 'main' },
   },
   {
     path: '/shop',
     component: Shop,
+    meta: { layout: 'main' },
+  },
+  {
+    path: '*',
+    component: E404,
+    meta: { layout: 'empty' },
   },
 ]
 

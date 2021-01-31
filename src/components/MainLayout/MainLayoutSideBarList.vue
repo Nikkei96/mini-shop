@@ -35,7 +35,7 @@ export default {
       },
       {
         icon: 'mdi-face-agent',
-        route: '',
+        route: '/asd',
         text: 'Услуги',
       },
       {

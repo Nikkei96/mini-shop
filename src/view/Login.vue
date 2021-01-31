@@ -23,6 +23,7 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
+import firebase from 'firebase/app'
 
 export default {
   data: () => ({
@@ -40,18 +41,19 @@ export default {
     },
   },
 
-  updated() {
-    console.log(this.$v.$invalid)
-  },
-
   methods: {
-    submitHandler() {
+    async submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch()
         return
       }
 
-      this.$router.push({ name: 'Home' })
+      try {
+        await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+        this.$router.push({ name: 'Home' })
+      } catch (e) {
+        console.error(e)
+      }
     },
   },
 }

@@ -19,10 +19,6 @@ export default {
       return (this.$route.meta.layout || 'empty') + '-layout'
     },
   },
-
-  created() {
-    console.log(this.$route.meta.layout)
-  },
 }
 </script>
 

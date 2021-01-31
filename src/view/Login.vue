@@ -1,5 +1,5 @@
 <template>
-  <div>Shop</div>
+  <div class='white--text'>LOGIN</div>
 </template>
 
 <script>

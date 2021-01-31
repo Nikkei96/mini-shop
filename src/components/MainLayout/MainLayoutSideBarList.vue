@@ -4,8 +4,9 @@
       dense
       v-for='(link, idx) of links'
       :key='idx'
-      :to='link.route'
+      :to='{name: link.route}'
       link
+      exact
       :title='link.text'
     >
       <v-list-item-icon>
@@ -25,27 +26,27 @@ export default {
     links: [
       {
         icon: 'mdi-home',
-        route: '/',
+        route: 'Home',
         text: 'Главная',
       },
       {
         icon: 'mdi-shopping',
-        route: '/shop',
+        route: 'Shop',
         text: 'Магазин',
       },
       {
         icon: 'mdi-face-agent',
-        route: '/asd',
+        route: 'Services',
         text: 'Услуги',
       },
       {
         icon: 'mdi-history',
-        route: '',
+        route: 'Orders',
         text: 'Заказы',
       },
       {
         icon: 'mdi-wallet',
-        route: '',
+        route: 'Balance',
         text: 'Баланс',
       },
     ],

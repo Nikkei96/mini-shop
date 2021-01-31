@@ -1,24 +1,17 @@
 <template>
-  <v-app app>
-    <Header />
-    <SideBar />
-
-    <v-main>
-      <router-view />
-    </v-main>
-  </v-app>
+  <component :is='"MainLayout"' />
 </template>
 
 <script>
-import Header from '@/components/Header'
-import SideBar from '@/components/SideBar'
+import MainLayout from '@/layouts/MainLayout'
+import EmptyLayout from '@/layouts/EmptyLayout'
 
 export default {
   data: () => ({}),
 
   components: {
-    Header,
-    SideBar,
+    MainLayout,
+    EmptyLayout,
   },
 }
 </script>

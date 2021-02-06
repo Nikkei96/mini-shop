@@ -35,6 +35,7 @@ export default {
   },
 
   created() {
+    this.window.width = window.innerWidth
     window.addEventListener('resize', this.resizeHandler)
   },
 

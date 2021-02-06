@@ -10,6 +10,6 @@ export default {}
 
 <style scoped>
 #app {
-  background: url('../assets/img/empty_bg.jpg') 0 0 / cover;
+  background: url('../assets/images/empty_bg.jpg') 0 0 / cover;
 }
 </style>

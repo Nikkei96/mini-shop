@@ -5,7 +5,7 @@
     style='height: 100vh'
   >
     <v-card outlined width='400px'>
-      <v-card-title>Вход</v-card-title>
+      <v-card-title>Регистрация</v-card-title>
 
       <v-card-subtitle>Добро пожаловать!</v-card-subtitle>
 
@@ -23,7 +23,7 @@
           hide-details
           label='E-mail'
           v-model='email'
-          :error='$v.email.$dirty && !$v.email.email || $v.email.$dirty && !$v.email.required '
+          :error='$v.email.$dirty && !$v.email.email || $v.email.$dirty && !$v.email.required'
         ></v-text-field>
         <v-text-field
           class='mb-2'
@@ -35,6 +35,16 @@
           v-model='password'
           :error='$v.password.$dirty && !$v.password.required'
         ></v-text-field>
+        <v-text-field
+          class='mb-2'
+          outlined
+          dense
+          hide-details
+          label='Повторите пароль'
+          type='password'
+          v-model='repeatPassword'
+          :error='$v.password.$dirty && !$v.password.required'
+        ></v-text-field>
         <div class='text-center red--text' v-if='errorMessage'>{{errorMessage}}</div>
       </v-card-text>
 
@@ -42,15 +52,21 @@
 
       <v-card-actions>
         <v-container fluid class='pa-0'>
-          <v-btn depressed small color='success' block @click='login'>Войти</v-btn>
           <v-btn
             depressed
             small
             color='primary'
             block
+            @click='register'
+          >Зарегистрироваться</v-btn>
+          <v-btn
+            depressed
+            small
+            color='success'
+            block
             class='my-2'
-            :to='{name: "Register"}'
-          >Регистрация</v-btn>
+            :to='{name: "Login"}'
+          >Уже есть аккаунт</v-btn>
         </v-container>
       </v-card-actions>
     </v-card>
@@ -65,6 +81,7 @@ export default {
   data: () => ({
     email: '',
     password: '',
+    repeatPassword: '',
     errorMessage: null,
   }),
 
@@ -79,16 +96,24 @@ export default {
   },
 
   methods: {
-    async login() {
+    async register() {
       if (this.$v.$invalid) {
         this.$v.$touch()
         this.errorMessage = null
         return
       }
 
+      if (this.password != this.repeatPassword) {
+        this.errorMessage = null
+        setTimeout(() => {
+          this.errorMessage = 'Пароли не совпадают!'
+        }, 100)
+        return
+      }
+
       try {
         this.errorMessage = null
-        await firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+        await firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         this.$router.push({ name: 'Home' })
       } catch (e) {
         this.errorMessage = e.message

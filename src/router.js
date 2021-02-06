@@ -7,6 +7,7 @@ import Services from '@/view/Services'
 import Orders from '@/view/Orders'
 import Balance from '@/view/Balance'
 import Login from '@/view/Login'
+import Register from '@/view/Register'
 import E404 from '@/view/E404'
 
 // * Мы говорим VUE использовать эту библиотеку
@@ -51,6 +52,12 @@ const routes = [
     name: 'Login',
     path: '/login',
     component: Login,
+    meta: { layout: 'empty' },
+  },
+  {
+    name: 'Register',
+    path: '/register',
+    component: Register,
     meta: { layout: 'empty' },
   },
   {

@@ -75,7 +75,6 @@
 
 <script>
 import { required, email } from 'vuelidate/lib/validators'
-import firebase from 'firebase/app'
 
 export default {
   data: () => ({
@@ -113,7 +112,7 @@ export default {
 
       try {
         this.errorMessage = null
-        await firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        await this.$firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
         this.$router.push({ name: 'Home' })
       } catch (e) {
         this.errorMessage = e.message

@@ -10,15 +10,13 @@
 </template>
 
 <script>
-import firebase from 'firebase/app'
-
 export default {
   data: () => ({}),
 
   methods: {
     async logout() {
       try {
-        await firebase.auth().signOut()
+        await this.$firebase.auth().signOut()
       } catch (e) {
         console.error(e.message)
       }

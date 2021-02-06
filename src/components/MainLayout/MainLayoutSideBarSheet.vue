@@ -9,13 +9,19 @@
       size='32'
       title='john@vuetifyjs.com'
     ></v-avatar>
-    <div v-if='window.width > windowLimit'>john@vuetifyjs.com</div>
+    <div v-if='window.width > windowLimit'>{{email}}</div>
   </v-sheet>
 </template>
 
 <script>
 export default {
   props: ['window', 'windowLimit'],
+
+  computed: {
+    email() {
+      return this.$firebase.auth().currentUser?.email
+    },
+  },
 }
 </script>
 

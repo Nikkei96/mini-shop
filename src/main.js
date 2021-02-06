@@ -4,12 +4,15 @@ import router from '@/router'
 import vuetify from '@/plugins/vuetify'
 import Vuelidate from 'vuelidate'
 
+import firebasePlugin from './plugins/firebase'
+
 import firebase from 'firebase/app'
 import 'firebase/auth'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuelidate)
+Vue.use(firebasePlugin)
 
 let firebaseConfig = {
   apiKey: "AIzaSyCvU5reGcqJuzBrkggKNRQ2RL2i0iWax4A",
@@ -22,8 +25,11 @@ let firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
-new Vue({
-  router,
-  vuetify,
-  render: h => h(App)
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(() => {
+  new Vue({
+    router,
+    vuetify,
+    render: h => h(App)
+  }).$mount('#app')
+})
+

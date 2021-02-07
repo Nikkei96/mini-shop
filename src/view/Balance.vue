@@ -1,6 +1,7 @@
 <template>
   <v-container fluid>
-    <v-card>
+    <Loader v-if='!currencies' />
+    <v-card v-else>
       <v-card-title>
         <v-icon class='mr-2'>mdi-cash-multiple</v-icon>
         <span>Курс валют на {{new Date(currencies.Date) | dateTimeFilter}}</span>

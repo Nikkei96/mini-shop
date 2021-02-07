@@ -15,12 +15,17 @@ import firebasePlugin from './plugins/firebase'
 // фильтры
 import dateTimeFilter from './filters/dateTimeFilter'
 
+// глобальные компоненты
+import Loader from './components/app/Loader'
+
 Vue.config.productionTip = false
 
 Vue.use(Vuelidate)
 Vue.use(firebasePlugin)
 
 Vue.filter('dateTimeFilter', dateTimeFilter)
+
+Vue.component('Loader', Loader)
 
 let firebaseConfig = {
   apiKey: "AIzaSyCvU5reGcqJuzBrkggKNRQ2RL2i0iWax4A",

@@ -5,6 +5,7 @@
       :dialog='dialog'
       :money='money'
       @changeDialog='dialog = !dialog'
+      @updateMoney='money = $event'
     />
     <Loader v-if='!currencies' />
     <v-card v-else>

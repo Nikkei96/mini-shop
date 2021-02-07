@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title>
         <v-icon class='mr-2'>mdi-cash-multiple</v-icon>
-        <span>Курс валют на {{new Date(currencies.Date)}}</span>
+        <span>Курс валют на {{new Date(currencies.Date) | dateTimeFilter}}</span>
       </v-card-title>
 
       <v-card-text>

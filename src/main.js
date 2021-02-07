@@ -1,18 +1,26 @@
+// Core
 import Vue from 'vue'
-import App from '@/App.vue'
-import router from '@/router'
-import vuetify from '@/plugins/vuetify'
+import App from './App.vue'
+import router from './router'
+
+// библиотеки
 import Vuelidate from 'vuelidate'
-
-import firebasePlugin from './plugins/firebase'
-
 import firebase from 'firebase/app'
 import 'firebase/auth'
+
+// плагины
+import vuetify from './plugins/vuetify'
+import firebasePlugin from './plugins/firebase'
+
+// фильтры
+import dateTimeFilter from './filters/dateTimeFilter'
 
 Vue.config.productionTip = false
 
 Vue.use(Vuelidate)
 Vue.use(firebasePlugin)
+
+Vue.filter('dateTimeFilter', dateTimeFilter)
 
 let firebaseConfig = {
   apiKey: "AIzaSyCvU5reGcqJuzBrkggKNRQ2RL2i0iWax4A",

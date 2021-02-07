@@ -1,13 +1,18 @@
 <template>
   <v-container fluid>
-    <BalanceDialog :dialog='dialog' @changeDialog='dialog = !dialog' />
+    <BalanceDialog
+      v-if='dialog'
+      :dialog='dialog'
+      :money='money'
+      @changeDialog='dialog = !dialog'
+    />
     <Loader v-if='!currencies' />
     <v-card v-else>
       <v-card-title>
         <v-icon class='mr-2'>mdi-cash-multiple</v-icon>
         <span>Курс валют на {{new Date(currencies.Date) | dateTimeFilter}}</span>
         <v-spacer></v-spacer>
-        <v-btn color='primary' @click='dialog = !dialog'>Кошелёк</v-btn>
+        <v-btn color='primary' @click='loadMoney' :loading='loading'>Кошелёк</v-btn>
       </v-card-title>
 
       <v-card-text>
@@ -41,7 +46,19 @@ export default {
   data: () => ({
     currencies: null,
     dialog: false,
+    money: null,
+    loading: false,
   }),
+
+  methods: {
+    async loadMoney() {
+      this.loading = true
+      const uid = this.$firebase.auth().currentUser.uid
+      this.money = (await this.$firebase.database().ref(`/users/${uid}/info`).once('value')).val().money
+      this.loading = false
+      this.dialog = !this.dialog
+    },
+  },
 
   mounted() {
     setTimeout(async () => {

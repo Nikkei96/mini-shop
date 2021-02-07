@@ -8,15 +8,14 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-card-title>
-
-      <v-card-text>ЗДЕСЬ БУДЕТ КОНТЕНТ (ИНПУТЫ И Т.Д.)</v-card-text>
+      <v-card-text>Ваш баланс: {{money}} руб.</v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
 export default {
-  props: ['dialog'],
+  props: ['dialog', 'money'],
 }
 </script>
 

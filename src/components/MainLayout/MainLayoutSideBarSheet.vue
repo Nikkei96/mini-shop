@@ -7,7 +7,7 @@
       :class='window.width > windowLimit ? "mb-4" : "my-2"'
       color='grey darken-1'
       size='32'
-      title='john@vuetifyjs.com'
+      :title='window.width < windowLimit ? email : ""'
     ></v-avatar>
     <div v-if='window.width > windowLimit'>{{email}}</div>
   </v-sheet>

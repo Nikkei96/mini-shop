@@ -6,6 +6,7 @@ import router from './router'
 // библиотеки
 import Vuelidate from 'vuelidate'
 import firebase from 'firebase/app'
+import 'firebase/database'
 import 'firebase/auth'
 
 // плагины
@@ -30,6 +31,7 @@ Vue.component('Loader', Loader)
 let firebaseConfig = {
   apiKey: "AIzaSyCvU5reGcqJuzBrkggKNRQ2RL2i0iWax4A",
   authDomain: "mini-shop-852c4.firebaseapp.com",
+  databaseUrl: 'https://mini-shop-852c4-default-rtdb.firebaseio.com/',
   projectId: "mini-shop-852c4",
   storageBucket: "mini-shop-852c4.appspot.com",
   messagingSenderId: "595872618447",

@@ -113,6 +113,11 @@ export default {
       try {
         this.errorMessage = null
         await this.$firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        const uid = this.$firebase.auth().currentUser.uid
+        await this.$firebase.database().ref(`/users/${uid}/info`).set({
+          money: 0,
+          email: this.email,
+        })
         this.$router.push({ name: 'Home' })
       } catch (e) {
         this.errorMessage = e.message

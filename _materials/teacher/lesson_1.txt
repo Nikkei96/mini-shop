@@ -1,0 +1,19 @@
+Знакомство с расширениями:
+1. Better Comments
+2. Bracket Pair Colorized 2
+3. Import Cost
+4. Auto rename tag
+5. Vetur -> отключить форматтер
+
+Что нужно:
+node.js
+npm
+npm install -g @vue/cli
+
+1) vue ui -> создание проекта
+2) npm install vue-router -> ручная отстройка
+  ---> демонстрация работы роутинга (Коммит 1)
+
+  
+3) vue add vuetify -> ручная отстройка (выбрать advanced)
+  ---> Ознакомить с фреймворком (общая информация)

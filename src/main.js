@@ -17,7 +17,7 @@ import firebasePlugin from './plugins/firebase'
 import dateTimeFilter from './filters/dateTimeFilter'
 
 // глобальные компоненты
-import Loader from './components/app/Loader'
+import Loader from './components/common/Loader'
 
 Vue.config.productionTip = false
 

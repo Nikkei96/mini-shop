@@ -7,9 +7,9 @@
       :class='window.width > windowLimit ? "mb-4" : "my-2"'
       color='grey darken-1'
       size='32'
-      :title='window.width < windowLimit ? email : ""'
+      :title='window.width < windowLimit ? name : ""'
     ></v-avatar>
-    <div v-if='window.width > windowLimit'>{{email}}</div>
+    <div v-if='window.width > windowLimit'>{{name}}</div>
   </v-sheet>
 </template>
 
@@ -17,10 +17,14 @@
 export default {
   props: ['window', 'windowLimit'],
 
-  computed: {
-    email() {
-      return this.$firebase.auth().currentUser?.email
-    },
+  data: () => ({
+    name: null,
+  }),
+
+  async created() {
+    const uid = this.$firebase.auth().currentUser?.uid
+    const dbData = (await this.$firebase.database().ref(`/users/${uid}/info`).once('value')).val()
+    this.name = dbData.name
   },
 }
 </script>

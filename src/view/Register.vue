@@ -30,6 +30,15 @@
           outlined
           dense
           hide-details
+          label='Ваше имя'
+          v-model='name'
+          :error='$v.name.$dirty && !$v.name.required'
+        ></v-text-field>
+        <v-text-field
+          class='mb-2'
+          outlined
+          dense
+          hide-details
           label='Пароль'
           type='password'
           v-model='password'
@@ -79,6 +88,7 @@ import { required, email } from 'vuelidate/lib/validators'
 export default {
   data: () => ({
     email: '',
+    name: '',
     password: '',
     repeatPassword: '',
     errorMessage: null,
@@ -90,6 +100,9 @@ export default {
       email,
     },
     password: {
+      required,
+    },
+    name: {
       required,
     },
   },
@@ -117,6 +130,7 @@ export default {
         await this.$firebase.database().ref(`/users/${uid}/info`).set({
           money: 0,
           email: this.email,
+          name: this.name,
         })
         this.$router.push({ name: 'Home' })
       } catch (e) {

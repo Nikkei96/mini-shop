@@ -3,6 +3,7 @@
     class='container'
     :class='{"fluid" : fluid}'
     :style='{"background-color": color}'
+    @click='changeColor'
   >
     <slot></slot>
   </div>
@@ -19,6 +20,12 @@ export default {
     color: {
       type: String,
       default: '#999',
+    },
+  },
+
+  methods: {
+    changeColor() {
+      this.color = '#' + (Math.random().toString(16) + '000000').substring(2, 8).toUpperCase()
     },
   },
 }

@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import MainLayoutHeader from '@/components/MainLayout/MainLayoutHeader'
-import MainLayoutSideBar from '@/components/MainLayout/MainLayoutSideBar'
+import MainLayoutHeader from '@/components/MainLayoutHeader'
+import MainLayoutSideBar from '@/components/MainLayoutSideBar'
 
 export default {
   components: {

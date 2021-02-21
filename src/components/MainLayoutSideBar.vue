@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import MainLayoutSideBarSheet from '@/components/MainLayout/MainLayoutSideBarSheet'
-import MainLayoutSideBarList from '@/components/MainLayout/MainLayoutSideBarList'
+import MainLayoutSideBarSheet from '@/components/MainLayoutSideBarSheet'
+import MainLayoutSideBarList from '@/components/MainLayoutSideBarList'
 
 export default {
   components: {

@@ -6,7 +6,7 @@
       :key='idx'
       :to='{name: link.route}'
       link
-      exact
+      :exact='link.route == "Home"'
       :title='link.text'
     >
       <v-list-item-icon>

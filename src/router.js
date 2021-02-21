@@ -3,6 +3,8 @@ import Router from 'vue-router'
 
 import Home from '@/view/Home'
 import Shop from '@/view/Shop'
+import ShopDetails from '@/view/ShopDetails'
+import ShopProducts from '@/view/ShopProducts'
 import Services from '@/view/Services'
 import Orders from '@/view/Orders'
 import Balance from '@/view/Balance'
@@ -25,10 +27,23 @@ const routes = [
     meta: { layout: 'main' },
   },
   {
-    name: 'Shop',
     path: '/shop',
     component: Shop,
     meta: { layout: 'main' },
+    children: [
+      {
+        name: 'Shop',
+        path: '',
+        component: ShopProducts,
+        meta: { layout: 'main' }
+      },
+      {
+        name: 'ShopDetails',
+        path: 'details/:uid',
+        component: ShopDetails,
+        meta: { layout: 'main' }
+      }
+    ]
   },
   {
     name: 'Services',

@@ -10,7 +10,7 @@
     <v-card-subtitle>Артикул: {{product.code}}</v-card-subtitle>
     <v-card-text>Цена: {{product.price}}₽</v-card-text>
     <v-card-actions>
-      <v-btn color='success'>Подробнее</v-btn>
+      <v-btn color='success' @click='goTo'>Подробнее</v-btn>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>mdi-cart</v-icon>
@@ -20,7 +20,7 @@
       </v-btn>
     </v-card-actions>
     <v-expand-transition>
-      <div v-show='show'>
+      <div v-show='show' class='details'>
         <v-divider></v-divider>
         <v-card-text>{{product.description}}</v-card-text>
       </div>
@@ -39,8 +39,24 @@ export default {
   data: () => ({
     show: false,
   }),
+
+  methods: {
+    goTo() {
+      this.$router.push({
+        name: 'ShopDetails',
+        params: {
+          uid: this.product.uid,
+        },
+      })
+    },
+  },
 }
 </script>
 
-<style>
+<style scoped>
+.details {
+  position: absolute;
+  width: 100%;
+  background: #eee;
+}
 </style>

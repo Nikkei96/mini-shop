@@ -12,3 +12,28 @@
 5) Сделать вывод аватарки 48px или инициалов если её нет. Сделать ховер, по наведению показывается кнопка + для добавления картинка
 
 6) Сделать попап добавления аватраки с записью в БД.
+
+7) Создать вручную запись в БД о двух товарах
+
+shopInfo:
+  name: "Amazon v2.0"
+
+  products:
+    product1:
+      imageUrl: "http..."
+      characteristic: ["1", "2", ...]
+      code: "a7-2d-33"
+      description: "Новый телефон Iphone X"
+      name: "IPhone X"
+      price: 50000
+
+    product2:
+      imageUrl: "http..."
+      characteristic: ["1", "2", ...]
+      code: "b9-q5-34"
+      description: "Новый телефон Iphone 12"
+      name: "IPhone 12"
+      price: 90000
+
+
+8) Добавить карточку товара (в документации vuetify идём на v-card и забираем "Custom action"). Выносим карточку в отдельный компонент

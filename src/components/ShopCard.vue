@@ -1,12 +1,14 @@
 <template>
-  <v-card max-width='350' class='ma-3'>
+  <v-card width='300' class='ma-3'>
     <v-img
-      src='https://htstatic.imgsmail.ru/pic_image/5ba8100818c85192744ffff07175316a/450/450/1909782/'
+      :src='product.image_url'
       height='200px'
+      contain
+      lazy-src='http://acacia-wood.com/themes/jtherczeg-multi//assets/images/acacia/empty-img.png'
     ></v-img>
-    <v-card-title>Iphone 12</v-card-title>
-    <v-card-subtitle>Артикул: a7-2d-33</v-card-subtitle>
-    <v-card-text>Цена: 90000 ₽</v-card-text>
+    <v-card-title>{{product.name}}</v-card-title>
+    <v-card-subtitle>Артикул: {{product.code}}</v-card-subtitle>
+    <v-card-text>Цена: {{product.price}}₽</v-card-text>
     <v-card-actions>
       <v-btn color='success'>Подробнее</v-btn>
       <v-spacer></v-spacer>
@@ -20,7 +22,7 @@
     <v-expand-transition>
       <div v-show='show'>
         <v-divider></v-divider>
-        <v-card-text>Новый телефон Iphone 12</v-card-text>
+        <v-card-text>{{product.description}}</v-card-text>
       </div>
     </v-expand-transition>
   </v-card>
@@ -28,6 +30,12 @@
 
 <script>
 export default {
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
   data: () => ({
     show: false,
   }),
